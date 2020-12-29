@@ -1,9 +1,11 @@
 
 import React, { Component } from "react";
 import Header from '../Header/Header';
-import Sidebar from '../Sidebar/Sidebar'
-import NoteContainer from '../NoteContainer/NoteContainer'
+import { Route } from 'react-router-dom'
 import STORE from '../dummy-data'
+import MainComponent from '../MainComponent/MainComponent'
+import NoteComponent from '../NoteComponent/NoteComponent'
+import FolderComponent from '../FolderComponent/FolderComponent'
 
 
 class App extends Component {
@@ -25,8 +27,36 @@ class App extends Component {
     <div className="App">
         <Header />
       <main>
-        <Sidebar folders={this.state.folders} />
-        <NoteContainer notes={this.state.notes} />
+        <Route 
+          exact
+          path='/'
+          render={() => 
+          <MainComponent 
+              folders={this.state.folders}
+              notes={this.state.notes}
+          />
+        }
+        />
+
+        <Route 
+          path='/folder/:folderId'
+          render={(props) => 
+          <FolderComponent 
+              folderInfo={props.match}
+              folders={this.state.folders}
+              notes={this.state.notes} />}
+        />
+
+
+        <Route 
+          path='/note/:noteId'
+          render={(props) => 
+          <NoteComponent 
+              noteInfo={props.match}
+              folders={this.state.folders}
+              notes={this.state.notes}
+           />}
+        />
       </main>
       
     </div>
