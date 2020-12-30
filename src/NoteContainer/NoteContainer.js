@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Note from '../Note/Note'
-import AddNote from '../AddNote/AddNote'
 
 class NoteContainer extends Component {
     constructor(props) {
@@ -19,11 +18,10 @@ class NoteContainer extends Component {
         return (
             <section className="note__section">
                 {notes}
-                <AddNote />
             </section>
         )
     }
 }
 
 
-export default NoteContainer;
+export default NoteContainer
