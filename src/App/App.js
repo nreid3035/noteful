@@ -7,6 +7,20 @@ import MainComponent from '../MainComponent/MainComponent'
 import NoteComponent from '../NoteComponent/NoteComponent'
 import FolderComponent from '../FolderComponent/FolderComponent'
 
+const fetchedFolders = fetch(`http://localhost:9090/folders`)
+                       .then(response => response.json())
+                       .then(responseJson => console.log(responseJson))
+
+const fetchedNotes = fetch(`http://localhost:9090/notes`)
+                     .then(response => response.json())
+                     .then(responseJson => console.log(responseJson))
+
+const deleteNoteRequest = fetch(`http://localhost:9090/note/${noteId}`, {
+                              method: 'DELETE',
+                              headers: {
+                                'content-type': 'application/json'
+                              }
+})
 
 class App extends Component {
   constructor(props) {
