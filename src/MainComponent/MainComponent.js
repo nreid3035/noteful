@@ -1,12 +1,16 @@
 import { Component } from 'react';
+import NoteContext from '../context/NoteContext';
 import NoteContainer from '../NoteContainer/NoteContainer';
 import Sidebar from '../Sidebar/Sidebar';
 
 
 
 class MainComponent extends Component {
-    constructor(props) {
-        super(props)
+    static contextType = NoteContext;
+
+    static defaultProps = {
+        folders: [],
+        notes: []
     }
 
 
@@ -14,8 +18,8 @@ class MainComponent extends Component {
     render() {
         return (
             <div>
-                <Sidebar folders={this.props.folders} />
-                <NoteContainer notes={this.props.notes} />
+                <Sidebar />
+                <NoteContainer />
             </div>
         )
     }

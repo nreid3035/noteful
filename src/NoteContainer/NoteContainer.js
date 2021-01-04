@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
+import NoteContext from '../context/NoteContext';
 import Note from '../Note/Note'
 
 class NoteContainer extends Component {
-    constructor(props) {
-        super(props)
+    static contextType = NoteContext
+
+    static defaultProps = {
+        notes: []
     }
+
 
 
 
     render() {
 
-        const notes = this.props.notes.map((note, i) => {
+        const { notes } = this.context
+
+        const notesArr = notes.map((note, i) => {
             return <Note note={note} key={i} />
         })
 

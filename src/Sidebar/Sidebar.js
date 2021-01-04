@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import Folder from '../Folder/Folder'
 import AddFolder from '../AddFolder/AddFolder'
+import NoteContext from '../context/NoteContext';
 
 
 class Sidebar extends Component {
-    constructor(props) {
-        super(props)
-        
+    static contextType = NoteContext
+
+    static defaultProps = {
+        folders: []
     }
 
 
 
+
     render() {
-        const folders = this.props.folders.map((folder, i) => {
+        const { folders } = this.context
+
+        const foldersArr = folders.map((folder, i) => {
             return (
                 <Folder folder={folder} key={i} />
             )
@@ -22,7 +27,7 @@ class Sidebar extends Component {
 
         return (
             <section className="sidebar__section">
-                {folders}
+                {foldersArr}
                 <AddFolder />
             </section>
         )

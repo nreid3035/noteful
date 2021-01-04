@@ -1,17 +1,24 @@
 import React from 'react';
+import NoteContext from '../context/NoteContext';
 import Note from '../Note/Note'
 
 class NoteComponent extends React.Component {
-    constructor(props) {
-        super(props)
+    static contextType = NoteContext;
+
+    static defaultProps = {
+        folders: [],
+        notes: []
     }
 
 
 
+
     render() {
+        const { notes } = this.context
+
         console.log(this.props)
-        const noteId = this.props.noteInfo.params.noteId
-        const chosenNote = this.props.notes.filter(note => note.id === noteId);
+        const noteId = this.props.match.params.noteId
+        const chosenNote = notes.filter(note => note.id === noteId);
         const note = chosenNote[0]
 
         return (
