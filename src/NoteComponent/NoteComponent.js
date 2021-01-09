@@ -1,7 +1,6 @@
 import React from 'react';
 import NoteContext from '../context/NoteContext';
 import Note from '../Note/Note'
-import DisplaySingleNote from '../DisplaySingleNote/DisplaySingleNote'
 
 class NoteComponent extends React.Component {
     constructor(props) {

@@ -1,12 +1,13 @@
 
 import React, { Component } from "react";
 import Header from '../Header/Header';
-import { Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import NoteContext from '../context/NoteContext'
 import MainComponent from '../MainComponent/MainComponent'
 import NoteComponent from '../NoteComponent/NoteComponent'
 import FolderComponent from '../FolderComponent/FolderComponent'
-
+import AddFolderForm from "../AddFolderForm/AddFolderForm";
+import AddNoteForm from '../AddNoteForm/AddNoteForm'
 
 
 class App extends Component {
@@ -73,7 +74,10 @@ class App extends Component {
 
   return (
     <div className="App">
-        <Header />
+        
+        <Link to="/">
+          <Header />        
+        </Link>
       <NoteContext.Provider value={contextValue}>
         <main>
         <Route 
@@ -92,7 +96,17 @@ class App extends Component {
           path='/note/:noteId'
           component={NoteComponent}
         />
-      </main>
+
+        <Route
+          path='/addFolderForm'
+          component={AddFolderForm}  
+        />
+  
+        <Route 
+          path='/addNoteForm'
+          component={AddNoteForm}
+        />
+        </main>
       </NoteContext.Provider>
     </div>
   );

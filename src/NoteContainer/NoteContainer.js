@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddNote from '../AddNote/AddNote';
 import NoteContext from '../context/NoteContext';
 import Note from '../Note/Note'
 
@@ -24,6 +25,7 @@ class NoteContainer extends Component {
         return (
             <section className="note__section">
                 {notesArr}
+                <AddNote />
             </section>
         )
     }

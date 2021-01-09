@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class AddFolder extends Component {
     render() {
         return (
-            <button>Add Folder</button>
+            // Onclick link to add folder form
+            <Link to="/addFolderForm">
+              <button>Add Folder</button>          
+            </Link>
         )
     }
 }
