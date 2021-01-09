@@ -24,18 +24,14 @@ class NoteComponent extends React.Component {
         const noteId = this.props.match.params.noteId
         const chosenNote = notes.filter(note => note.id === noteId);
         console.log(chosenNote)
-        const note = chosenNote.map((note, i) => {
-           return <DisplaySingleNote
-                name={note.name}
-                modified={note.modified}
-                content={note.content} />
-        })
-        console.log(chosenNote)
 
 
         return (
             <div>
-                {note}
+                <button onClick={() => this.props.history.goBack()}>Go Back!</button>
+        <h2>{chosenNote[0].name}</h2>
+        <p>{chosenNote[0].modified}</p>
+        <p>{chosenNote[0].content}</p>
             </div>
             
         )

@@ -1,6 +1,9 @@
 import React from 'react';
+import NoteContext from '../context/NoteContext';
 
 class DeleteNote extends React.Component {
+    static contextType = NoteContext
+
     constructor(props) {
         super(props)
     } 
