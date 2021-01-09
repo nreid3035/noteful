@@ -26,7 +26,7 @@ class App extends Component {
 
   setNotes = (notes) => {
     this.setState({
-      notes
+      notes: notes
     })
   }
 
@@ -60,7 +60,6 @@ class App extends Component {
           })
         .then(responseJson => {
           this.setNotes(responseJson)
-          console.log(responseJson)
         })
         .catch(err => console.log(err))
       }

@@ -1,8 +1,12 @@
 import React from 'react';
 import NoteContext from '../context/NoteContext';
 import Note from '../Note/Note'
+import DisplaySingleNote from '../DisplaySingleNote/DisplaySingleNote'
 
 class NoteComponent extends React.Component {
+    constructor(props) {
+        super(props)
+    }
     static contextType = NoteContext;
 
     static defaultProps = {
@@ -19,18 +23,21 @@ class NoteComponent extends React.Component {
         console.log(this.props)
         const noteId = this.props.match.params.noteId
         const chosenNote = notes.filter(note => note.id === noteId);
-        const note = chosenNote[0]
+        console.log(chosenNote)
+        const note = chosenNote.map((note, i) => {
+           return <DisplaySingleNote
+                name={note.name}
+                modified={note.modified}
+                content={note.content} />
+        })
+        console.log(chosenNote)
+
 
         return (
             <div>
-                <button>Go Back!</button>
-                <div className='noteComponent__note'>
-                    <h2>{note.name}</h2>
-                    <button>Delete</button>
-                    <p>{note.modified}</p>
-                </div>
-                    <p>{note.content}</p>
+                {note}
             </div>
+            
         )
     }
 }

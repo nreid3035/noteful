@@ -13,14 +13,14 @@ deleteNote = (noteId) => {
             'content-type': 'application/json'
         }
     }).then(response => response.json())
-      .then(responseJson => this.context.handleDelete(responseJson))
+      .then(responseJson => this.context.handleDelete(noteId))
       .catch(err => console.log(err))
 }
 
     
     render() {
         return (<div>
-            {/*<button onClick={this.deleteNote(this.props.noteId)}>Delete Note</button> */}
+            {<button onClick={() => this.deleteNote(this.props.noteId)}>Delete Note</button>}
 
         </div>
         )

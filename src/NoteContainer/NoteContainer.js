@@ -23,7 +23,7 @@ class NoteContainer extends Component {
 
         return (
             <section className="note__section">
-                {notes}
+                {notesArr}
             </section>
         )
     }
