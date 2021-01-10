@@ -69,7 +69,9 @@ class App extends Component {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
-      handleDelete: this.handleDelete
+      handleDelete: this.handleDelete,
+      setFolders: this.setFolders,
+      setNotes: this.setNotes
     }
 
   return (

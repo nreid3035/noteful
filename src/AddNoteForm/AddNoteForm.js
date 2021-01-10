@@ -1,6 +1,9 @@
 import React from 'react';
+import NoteContext from '../context/NoteContext';
 
 class AddNoteForm extends React.Component {
+    static contextType = NoteContext
+
     constructor(props) {
         super(props)
         this.noteNameInput = React.createRef();
@@ -29,6 +32,9 @@ class AddNoteForm extends React.Component {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            const contextNotes = this.context.notes
+            const notes = [...contextNotes, data]
+            this.context.setNotes(notes)
             this.props.history.push('/')
         })
     }

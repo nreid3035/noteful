@@ -31,6 +31,9 @@ class AddFolderForm extends React.Component {
         .then(response => response.json())
         .then(responseJson => {
             console.log('Success:', responseJson)
+            const contextFolders = this.context.folders
+            const folders = [...contextFolders, responseJson]
+            this.context.setFolders(folders)
             this.props.history.push('/')
         })
         .catch((error) => {

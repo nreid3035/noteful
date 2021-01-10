@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import DeleteNote from '../DeleteNote/DeleteNote'
+import PropTypes from 'prop-types'
 
 
 export default function Note(props) {
+    console.log(props)
     return (
         <div className="note__container" key={props.key}>
             <Link to={`/note/${props.note.id}`}>
@@ -13,4 +15,9 @@ export default function Note(props) {
             <DeleteNote noteId={props.note.id} />
         </div>
     )
+}
+
+Note.propTypes = {
+    note: PropTypes.object,
+    key: PropTypes.number
 }

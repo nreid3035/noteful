@@ -1,11 +1,7 @@
 import React from 'react';
 import NoteContext from '../context/NoteContext';
-import Note from '../Note/Note'
 
 class NoteComponent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
     static contextType = NoteContext;
 
     static defaultProps = {

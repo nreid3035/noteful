@@ -1,12 +1,9 @@
 import React from 'react';
 import NoteContext from '../context/NoteContext';
+import PropTypes from 'prop-types'
 
 class DeleteNote extends React.Component {
     static contextType = NoteContext
-
-    constructor(props) {
-        super(props)
-    } 
 
     
 deleteNote = (noteId) => {
@@ -28,6 +25,13 @@ deleteNote = (noteId) => {
         </div>
         )
     }
+}
+
+DeleteNote.propTypes = {
+    noteId: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ])
 }
 
 export default DeleteNote
