@@ -8,6 +8,7 @@ import NoteComponent from '../NoteComponent/NoteComponent'
 import FolderComponent from '../FolderComponent/FolderComponent'
 import AddFolderForm from "../AddFolderForm/AddFolderForm";
 import AddNoteForm from '../AddNoteForm/AddNoteForm'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 
 class App extends Component {
@@ -82,17 +83,19 @@ class App extends Component {
         </Link>
       <NoteContext.Provider value={contextValue}>
         <main>
+      
         <Route 
           exact
           path='/'
           component={MainComponent}
         />
-
+      
+        
+      
         <Route 
           path='/folder/:folderId'
           component={FolderComponent}
         />
-
 
         <Route 
           path='/note/:noteId'
