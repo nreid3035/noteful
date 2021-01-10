@@ -12,6 +12,25 @@ class AddNoteForm extends React.Component {
         const noteName = this.noteNameInput.current.value;
         const noteContent = this.noteContentInput.current.value
         console.log(noteName, noteContent)
+        const jsonBody = {
+            "id": "",
+            "name": noteName,
+            "modified": "",
+            "folderId": "",
+            "content": noteContent
+        }
+        fetch(`http://localhost:9090/notes`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(jsonBody)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            this.props.history.push('/')
+        })
     }
 
     render() {

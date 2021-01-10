@@ -23,7 +23,6 @@ class Sidebar extends Component {
             )
         })
         
-        console.log(folders)
 
         return (
             <section className="sidebar__section">
