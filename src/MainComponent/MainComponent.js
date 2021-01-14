@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import NoteContext from '../context/NoteContext';
 import NoteContainer from '../NoteContainer/NoteContainer';
 import Sidebar from '../Sidebar/Sidebar';
@@ -17,10 +17,10 @@ class MainComponent extends Component {
 
     render() {
         return (
-            <div>
+            <Fragment>
                 <Sidebar />
-                <NoteContainer />
-            </div>
+                <NoteContainer />                  
+            </Fragment>    
         )
     }
 }

@@ -77,10 +77,7 @@ class App extends Component {
 
   return (
     <div className="App">
-        
-        <Link to="/">
-          <Header />        
-        </Link>
+        <Header />           
       <NoteContext.Provider value={contextValue}>
         <main>
       
@@ -97,10 +94,12 @@ class App extends Component {
           component={FolderComponent}
         />
 
-        <Route 
-          path='/note/:noteId'
-          component={NoteComponent}
-        />
+        <ErrorBoundary>
+          <Route 
+            path='/note/:noteId'
+            component={NoteComponent}
+          />
+        </ErrorBoundary>
 
         <Route
           path='/addFolderForm'
