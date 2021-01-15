@@ -51,7 +51,10 @@ class App extends Component {
       .then(responseJson => {
           this.setFolders(responseJson)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err) 
+        throw new Error
+      })
 
       fetch(`http://localhost:9090/notes`)
         .then(response => {
@@ -63,7 +66,10 @@ class App extends Component {
         .then(responseJson => {
           this.setNotes(responseJson)
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+          console.log(err) 
+          throw new Error
+        })
       }
   
   render() {

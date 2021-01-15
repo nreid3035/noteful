@@ -4,21 +4,17 @@ import AddNote from '../AddNote/AddNote';
 import Note from '../Note/Note';
 import Folder from '../Folder/Folder'
 import NoteContext from '../context/NoteContext';
+import PropTypes from 'prop-types'
 
 class FolderComponent extends React.Component {
     static contextType = NoteContext;
 
-    static defaultProps = {
-        folders: [],
-        notes: []
-    }
-
 
 
     render() {
+        console.log(this.props)
         const { folders, notes } = this.context
 
-        console.log(this.props)
         const foldersArr = folders.map((folder, i) => {
             return <Folder folder={folder} key={i} />
         })
@@ -43,5 +39,10 @@ class FolderComponent extends React.Component {
     }
 }
 
+FolderComponent.propTypes = {
+    history: PropTypes.object,
+    location: PropTypes.object,
+    match: PropTypes.object,
+}
 
 export default FolderComponent;

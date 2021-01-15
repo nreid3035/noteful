@@ -2,19 +2,13 @@ import React, { Component } from 'react';
 import AddNote from '../AddNote/AddNote';
 import NoteContext from '../context/NoteContext';
 import Note from '../Note/Note'
+import PropTypes from 'prop-types'
 
 class NoteContainer extends Component {
     static contextType = NoteContext
 
-    static defaultProps = {
-        notes: []
-    }
-
-
-
-
     render() {
-
+        console.log(this.props)
         const { notes } = this.context
 
         const notesArr = notes.map((note, i) => {

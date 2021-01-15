@@ -2,16 +2,10 @@ import React, { Component } from 'react';
 import Folder from '../Folder/Folder'
 import AddFolder from '../AddFolder/AddFolder'
 import NoteContext from '../context/NoteContext';
-
+import PropTypes from 'prop-types'
 
 class Sidebar extends Component {
     static contextType = NoteContext
-
-    static defaultProps = {
-        folders: []
-    }
-
-
 
 
     render() {

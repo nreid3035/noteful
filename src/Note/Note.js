@@ -18,6 +18,6 @@ export default function Note(props) {
 }
 
 Note.propTypes = {
-    note: PropTypes.object,
+    note: PropTypes.object.isRequired,
     key: PropTypes.number
 }

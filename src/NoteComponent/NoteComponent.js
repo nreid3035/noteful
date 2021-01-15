@@ -1,25 +1,19 @@
 import React from 'react';
 import NoteContext from '../context/NoteContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import PropTypes from 'prop-types';
 
 class NoteComponent extends React.Component {
     static contextType = NoteContext;
 
-    static defaultProps = {
-        folders: [],
-        notes: []
-    }
-
-
-
 
     render() {
+        console.log(this.props)
+
         const { notes } = this.context
 
-        console.log(this.props)
         const noteId = this.props.match.params.noteId
         const chosenNote = notes.filter(note => note.id === noteId);
-        console.log(chosenNote)
         
         if (chosenNote.length > 0) {
             return (
@@ -37,6 +31,12 @@ class NoteComponent extends React.Component {
 
        
     }
+}
+
+NoteComponent.propTypes = {
+    history: PropTypes.object,
+    location: PropTypes.object,
+    match: PropTypes.object,
 }
 
 export default NoteComponent;

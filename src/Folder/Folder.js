@@ -15,6 +15,6 @@ export default function Folder(props) {
 
 
 Folder.propTypes = {
-  folder: PropTypes.object,
+  folder: PropTypes.object.isRequired,
   key: PropTypes.number
 }

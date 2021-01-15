@@ -19,6 +19,7 @@ deleteNote = (noteId) => {
 
     
     render() {
+        console.log(this.props)
         return (<div>
             {<button onClick={() => this.deleteNote(this.props.noteId)}>Delete Note</button>}
 
@@ -32,6 +33,6 @@ DeleteNote.propTypes = {
         PropTypes.string,
         PropTypes.number
     ])
-}
+}   
 
 export default DeleteNote
